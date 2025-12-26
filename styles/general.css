@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+
+body {
+  background-color: #00040f;
+}
+
+.Front-page{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 80px 0.97fr 100px;
+}
+
+@media (max-width: 700px) {
+  .Front-page{
+    grid-template-rows: 140px 1fr 60px;
+  }
+}
+
+
+
+
+

@@ -1,0 +1,37 @@
+
+.footer {
+  height: 100%;
+  background-color: #000617;
+  box-shadow: 0px 0px 25px rgb(3, 0, 15);
+  border: 2px;
+  padding: 10px;
+  border-color: rgb(226, 226, 226);
+  border-radius: 10px;
+  margin: 0px 15px;
+  border-style: solid;
+}
+
+@media (max-width: 480px) {
+  .footer {
+    height: 325%;
+  }
+}
+@media (min-width: 600px) and (max-width: 885px) {
+  .footer {
+    height: 120%;
+  }
+}
+
+.footer-heading {
+  color: white;
+  font-size: 18px;
+}
+
+.footer-dis {
+  font-weight: 300;
+  color: white;
+}
+
+.footer-dis-box {
+  margin-top: 15px;
+}
