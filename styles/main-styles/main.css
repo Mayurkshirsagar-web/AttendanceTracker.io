@@ -1,0 +1,228 @@
+.main-box {
+  background-color: rgb(0, 0, 6);
+  display: grid;
+  grid-template-rows: 180px 215px 1fr;
+}
+
+.main-box-1 {
+  display: flex;
+  justify-content: center;
+  border: 2px solid white;
+  margin: 15px 20px;
+  border-radius: 10px;
+  background-color: rgb(0, 24, 9);
+  box-shadow: 0px 0px 20px rgb(1, 6, 37);
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-box-1-2 {
+  background-color: rgb(24, 1, 1);
+}
+
+.basic-working {
+  color: white;
+  font-family: "BBH Bartle";
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin-bottom: 0.5%;
+  text-shadow: 2px 2px 0.001px rgb(50, 3, 3);
+}
+
+.basic-dis {
+  color: white;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5%;
+}
+
+.main-box-2 {
+  background-color: rgb(50, 49, 3);
+  height: auto;
+  margin: 10px 19px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  border: 5px dashed rgb(31, 28, 1);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding: 0px 3px;
+}
+
+.time-table-box {
+  background-color: rgb(12, 24, 11);
+  min-height: 40vh;
+  border: 2px solid;
+  margin: 10px 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 35px 45px 1fr;
+  box-shadow: 4px 5px 2px black;
+  justify-items: center;
+}
+
+.day-span {
+  font-family: "BBH Bartle";
+  color: white;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 6%;
+  text-shadow: 2px 2px 0.001px rgb(67, 5, 5);
+}
+
+.subject-input-box {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px none white;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.subject-display-box::-webkit-scrollbar {
+  width: 5px;
+  padding-top: 5px
+}
+
+.subject-display-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.subject-display-box::-webkit-scrollbar-thumb {
+  background: rgb(170, 170, 170); /* Matches your 'Add' button green */
+  border-radius: 10px;
+}
+
+.subject-input {
+  height: 85%;
+  width: 74%;
+  padding: 7px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(226, 226, 226);
+}
+
+.subject-input::placeholder {
+  font-size: 12px;
+}
+
+.subject-button-add {
+  width: 43px;
+  height: 85%;
+  background-color: rgb(82, 195, 82);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  margin-left: 10px
+}
+
+.subject-display-box {
+  border-radius: 12px;
+  background-color: rgb(21, 24, 11);
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  padding: 4%;
+  padding-top: 1%;
+  overflow-y: auto;
+}
+
+.subject-display {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subject-name {
+  color: white;
+}
+
+.subject-button-remove {
+  width: 60px;
+  height: 125%;
+  background-color: rgb(202, 53, 53);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  transition: all 0.15 ease;
+}
+
+.subject-button {
+  box-shadow: 1.5px 1.5px 0.001px black;
+}
+
+.subject-button:hover {
+  opacity: 0.9;
+}
+
+.subject-button:active {
+  opacity: 0.75;
+}
+
+@media (max-width: 700px) {
+  .back-to-top {
+    right: -3px;
+    top: 17px;
+    z-index: 3;
+  }
+  .basic-working {
+    font-size: 19px;
+  }
+  .main-box {
+    grid-template-rows: 310px 310px 1fr;
+  }
+  .basic-dis {
+    margin-top: 2.5%;
+  }
+  .main-box-2 {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
+  .day-span {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+  .back-to-top {
+    right: 23px;
+    top: 145px;
+  }
+  .main-box-2 {
+    grid-template-columns: 1fr 1fr 1fr;
+    height: auto;
+  }
+  .main-box {
+    margin-top:38px;
+    grid-template-rows: 215px 215px 1fr;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 410px) {
+  .back-to-top {
+    right: 40px;
+    top: 28px;
+  }
+  .main-box {
+   margin-top: 43px;
+   grid-template-rows: 370px 380px 1fr;
+  }
+  .basic-working {
+    font-size: 17px;
+  }
+  .main-box-2 {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
+  .day-span {
+    font-size: 9px;
+    margin-top: 12px;
+  }
+  
+}
