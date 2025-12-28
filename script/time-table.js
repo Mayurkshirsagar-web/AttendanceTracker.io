@@ -106,24 +106,27 @@ function renderTimeTable() {
   // event listener for edit button on start 
   let startElement = document.querySelector('.input-start-date');
   document.querySelector('.edit-date-button-start')
-    .addEventListener('click', () => {
-      const selectedDate = dayjs(startElement.value);
-      const today = dayjs();
+  .addEventListener('click', () => {
+    const selectedDate = dayjs(startElement.value);
+    const today = dayjs();
+    const storedEndDate = startEndDate.endDate ? dayjs(startEndDate.endDate) : null;
 
-      if (startElement.value !== '' && selectedDate.isValid()) {
-        if (selectedDate.isAfter(today)) {
-          startEndDate.startDate = startElement.value;
-          
-          document.querySelector('.display-start-day').innerHTML = 
-            selectedDate.format('dddd MMM DD');
-            saveStartDate(startElement.value);
-        } else {
-          alert('Please select a future date to Start!');
-        }
-      } else {
-        alert('Please select a Date to Start!');
-      }
-    });
+    if (!startElement.value || !selectedDate.isValid()) {
+      return alert('Please select a Date to Start!');
+    }
+
+    if (!selectedDate.isAfter(today, 'day')) {
+      return alert('Please select a future date to Start!');
+    }
+
+    if (storedEndDate && !selectedDate.isBefore(storedEndDate, 'day')) {
+      return alert('Please select a date BEFORE the End Date!');
+    }
+
+    startEndDate.startDate = startElement.value;
+    saveStartDate(startElement.value);
+    document.querySelector('.display-start-day').innerHTML = selectedDate.format('dddd MMM DD');
+  });
 
   // event listener for edit button on end
   let endElement = document.querySelector('.input-end-date');
