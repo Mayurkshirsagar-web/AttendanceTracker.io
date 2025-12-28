@@ -13,7 +13,7 @@
 
 @media (max-width: 480px) {
   .footer {
-    height: 325%;
+    height: 360%;
   }
 }
 @media (min-width: 500px) and (max-width: 768px) {
@@ -24,7 +24,7 @@
 
 @media (min-width: 768px) {
   .footer {
-    height: 115%;
+    height: 120%;
   }
 }
 

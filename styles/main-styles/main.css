@@ -39,27 +39,27 @@
 }
 
 .main-box-2 {
-  background-color: rgb(50, 49, 3);
+  background-color: rgb(51, 48, 1);
   height: auto;
   margin: 10px 19px;
-  margin-bottom: 25px;
+  margin-bottom: 23px;
   border-radius: 10px;
-  border: 5px dashed rgb(31, 28, 1);
+  border: 4px dashed rgb(31, 28, 1);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 0px 3px;
 }
 
 .time-table-box {
-  background-color: rgb(12, 24, 11);
-  min-height: 40vh;
-  border: 2px solid;
+  background-color: rgb(33, 35, 10);
+  max-height: 40vh;
+  height: 30vh;
   margin: 10px 10px;
   margin-bottom: 15px;
   border-radius: 10px;
   display: grid;
   grid-template-rows: 35px 45px 1fr;
-  box-shadow: 4px 5px 2px black;
+  box-shadow: 4px 4px 1px rgb(19, 1, 1);
   justify-items: center;
 }
 
@@ -121,19 +121,19 @@
 
 .subject-display-box {
   border-radius: 12px;
-  background-color: rgb(21, 24, 11);
   display: flex;
   flex-direction: column;
-  width: 93%;
-  margin-top: 2%;
-  margin-bottom: 3%;
-  padding: 4%;
+  width: 96%;
+  margin-top: 0%;
+  margin-bottom: 4%;
+  padding: 2%;
+  padding-left: 5%;
   padding-top: 1%;
   overflow-y: auto;
 }
 
 .subject-display {
-  margin: 10px 0px;
+  margin: 7px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -141,6 +141,9 @@
 
 .subject-name {
   color: white;
+  font-family: Roboto;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 1px 0.001px rgb(44, 4, 4);
 }
 
 .subject-button-remove {
@@ -154,7 +157,7 @@
 }
 
 .subject-button {
-  box-shadow: 1.5px 1.5px 0.001px black;
+  box-shadow: 1.5px 1.5px 0.001px rgb(50, 31, 31);
 }
 
 .subject-button:hover {
@@ -164,6 +167,7 @@
 .subject-button:active {
   opacity: 0.75;
 }
+
 
 @media (max-width: 700px) {
   .back-to-top {
@@ -187,6 +191,9 @@
   .day-span {
     font-size: 12px;
   }
+  .time-table-box {
+    max-height: 30vh;
+  }
 }
 
 @media (min-width: 701px) and (max-width: 1024px) {
@@ -201,6 +208,9 @@
   .main-box {
     margin-top:38px;
     grid-template-rows: 215px 215px 1fr;
+  }
+  .time-table-box {
+    max-height: 25vh;
   }
 }
 
@@ -224,5 +234,12 @@
     font-size: 9px;
     margin-top: 12px;
   }
-  
+  .time-table-box {
+    max-height: 25vh;
+    margin: 5%;
+  }
+  .subject-button-remove {
+    font-size: 13px;
+    margin-left: 8px;
+  }
 }
