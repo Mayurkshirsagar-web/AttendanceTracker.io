@@ -1,23 +1,82 @@
 .main-box {
   background-color: rgb(0, 0, 6);
   display: grid;
-  grid-template-rows: 180px 215px 1fr;
+  grid-template-rows: 180px 215px 1.5fr 225px;
 }
 
 .main-box-1 {
   display: flex;
   justify-content: center;
   border: 2px solid white;
-  margin: 15px 20px;
+  margin: 0px 20px;
+  margin-top: 23px;
   border-radius: 10px;
-  background-color: rgb(0, 24, 9);
-  box-shadow: 0px 0px 20px rgb(1, 6, 37);
   flex-direction: column;
   align-items: center;
 }
 
+.main-box-1 {
+    background: linear-gradient(179deg, #010d00, #022602, #a29414);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 6s ease infinite;
+    -moz-animation: AnimationName 6s ease infinite;
+    -o-animation: AnimationName 6s ease infinite;
+    animation: AnimationName 6s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+
 .main-box-1-2 {
-  background-color: rgb(24, 1, 1);
+    margin-bottom: 13px;
+    margin-top: 28px;
+    background: linear-gradient(179deg, #170100, #4f0707, #6d168f);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 6s ease infinite;
+    -moz-animation: AnimationName 6s ease infinite;
+    -o-animation: AnimationName 6s ease infinite;
+    animation: AnimationName 6s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
 }
 
 .basic-working {
@@ -39,27 +98,62 @@
 }
 
 .main-box-2 {
-  background-color: rgb(51, 48, 1);
+  background-color: rgb(82, 79, 18);
   height: auto;
   margin: 10px 19px;
   margin-bottom: 23px;
   border-radius: 10px;
-  border: 4px dashed rgb(31, 28, 1);
+  margin: 15px;
+  border: 3px solid rgb(183, 179, 137);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   padding: 0px 3px;
+  box-shadow: 0px 0px 10px rgb(4, 28, 36);
+}
+
+.main-box-2 {
+    background: linear-gradient(179deg, #d13f8b, #3c3a08, #7b0e62);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    -o-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 66%}
+    50%{background-position:100% 35%}
+    100%{background-position:0% 66%}
 }
 
 .time-table-box {
-  background-color: rgb(33, 35, 10);
+  background-color: rgb(32, 35, 3);
   max-height: 40vh;
-  height: 30vh;
-  margin: 10px 10px;
+  height: 35vh;
+  margin: 10px 12px;
   margin-bottom: 15px;
   border-radius: 10px;
   display: grid;
+  border-top: 3px solid rgb(18, 111, 18);
+  border-left: 3px solid rgb(26, 91, 26);
   grid-template-rows: 35px 45px 1fr;
-  box-shadow: 4px 4px 1px rgb(19, 1, 1);
+  box-shadow: 4px 4px 2px rgb(19, 2, 9);
   justify-items: center;
 }
 
@@ -97,26 +191,40 @@
 }
 
 .subject-input {
+  color: white;
   height: 85%;
   width: 74%;
   padding: 7px;
-  border: none;
   border-radius: 3px;
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(63, 63, 36);
+  border: 2px solid rgb(24, 104, 60);
+  border-bottom: 0px;
+  border-right: 0px;
+  box-shadow: 2px 2px 0.001px rgb(31, 6, 26);
 }
 
 .subject-input::placeholder {
   font-size: 12px;
+  color: white;
 }
 
 .subject-button-add {
-  width: 43px;
+  width: 47px;
   height: 85%;
-  background-color: rgb(82, 195, 82);
-  border: none;
-  border-radius: 4px;
+  font-weight: 600;
+  background-color: rgb(45, 143, 45);
+  border-radius: 6px;
   color: white;
-  margin-left: 10px
+  margin-left: 10px;
+  border: none;
+  letter-spacing: 0.5px;
+  transition: all 0.15s ease;
+}
+
+.subject-button-add:hover {
+  background-color: rgb(171, 205, 176);
+  color: rgb(45, 143, 45);
+  border-color: rgb(45, 143, 45);
 }
 
 .subject-display-box {
@@ -141,9 +249,8 @@
 
 .subject-name {
   color: white;
-  font-family: Roboto;
   letter-spacing: 0.5px;
-  text-shadow: 2px 1px 0.001px rgb(44, 4, 4);
+  text-shadow: 1px 1px 0.001px rgb(19, 33, 50);
 }
 
 .subject-button-remove {
@@ -151,23 +258,89 @@
   height: 125%;
   background-color: rgb(202, 53, 53);
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   color: white;
   transition: all 0.15 ease;
 }
 
-.subject-button {
-  box-shadow: 1.5px 1.5px 0.001px rgb(50, 31, 31);
+.subject-button-remove:hover {
+  background-color: rgb(206, 163, 163);
+  color: rgb(202, 53, 53);
+  border-color: rgb(202, 53, 53);
 }
 
-.subject-button:hover {
-  opacity: 0.9;
+.main-box-3 {
+  background-color: rgb(28, 5, 27);
+  border-radius: 10px;
+  margin: 20px;
+  margin-top: 13px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid rgb(231, 165, 165);
+  box-shadow: 0px 0px 10px rgb(5, 32, 41);
 }
 
-.subject-button:active {
-  opacity: 0.75;
+.input-days-box {
+  margin: 14px 15px;
+  background-color: rgb(59, 26, 65);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0.001px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-shadow: 2.5px 2.5px 0.001px rgb(40, 6, 40);
 }
 
+.input-days-title {
+  font-family: "BBH Bartle";
+  color: white;
+  letter-spacing: 1px;
+  font-size: 18px;
+  margin: 0px 0px;
+}
+
+.input-date {
+  width: 200px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  border: 3px solid rgb(26, 5, 5);
+  background-color: rgb(61, 15, 36);
+  font-weight: 600;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px rgb(41, 6, 6);
+}
+
+.edit-date-button {
+  margin-left: 20px;
+  padding: 8px;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(61, 15, 36);
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  box-shadow: 2px 2px 0.001px black;
+}
+
+.edit-date-button:hover {
+  color: rgb(61, 15, 36);
+  background-color: rgb(160, 160, 160);
+}
+
+.display-day {
+  margin-top: 0px;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 23px;
+  font-weight: 500;
+}
 
 @media (max-width: 700px) {
   .back-to-top {
@@ -179,7 +352,7 @@
     font-size: 19px;
   }
   .main-box {
-    grid-template-rows: 310px 310px 1fr;
+    grid-template-rows: 310px 310px 1fr 400px;
   }
   .basic-dis {
     margin-top: 2.5%;
@@ -192,7 +365,14 @@
     font-size: 12px;
   }
   .time-table-box {
-    max-height: 30vh;
+    max-height: 25vh;
+  }
+  .main-box-3 {
+    grid-template-columns: 1fr;
+  }
+  .input-days-title {
+    font-size: 15px;
+    margin-bottom: 13px;
   }
 }
 
@@ -207,10 +387,14 @@
   }
   .main-box {
     margin-top:38px;
-    grid-template-rows: 215px 215px 1fr;
+    grid-template-rows: 215px 215px 1fr 230px;
   }
   .time-table-box {
     max-height: 25vh;
+  }
+  .input-days-title {
+    font-size: 14.5px;
+    margin-bottom: 13px;
   }
 }
 
@@ -221,7 +405,7 @@
   }
   .main-box {
    margin-top: 43px;
-   grid-template-rows: 370px 380px 1fr;
+   grid-template-rows: 370px 380px 1fr 380px;
   }
   .basic-working {
     font-size: 17px;
@@ -231,15 +415,19 @@
     height: auto;
   }
   .day-span {
-    font-size: 9px;
-    margin-top: 12px;
+    font-size: 10px;
+    margin-top: 15px;
   }
   .time-table-box {
-    max-height: 25vh;
-    margin: 5%;
+    max-height: 33vh;
+    margin: 7% 6%;
   }
   .subject-button-remove {
     font-size: 13px;
     margin-left: 8px;
+  }
+  .input-days-title {
+    font-size: 12.4px;
+    margin-bottom: 13px;
   }
 }

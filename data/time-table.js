@@ -25,6 +25,25 @@ export const timeTable = JSON.parse(localStorage.getItem('time-table-data')) || 
   }
 ]
 
+export const startEndDate = JSON.parse(localStorage.getItem('start-end-date-data')) || {
+  startDate: '',
+  endDate: ''
+};
+
+export function saveStartDate(dates) {
+  localStorage.setItem('start-end-date-data', JSON.stringify({
+    startDate: dates,
+    endDate: ''
+  }));
+}
+
+export function saveEndDate(dates) {
+  localStorage.setItem('start-end-date-data', JSON.stringify({
+    startDate: startEndDate.startDate,
+    endDate: dates
+  }));
+}
+
 export function saveInStorage() {
   localStorage.setItem('time-table-data', JSON.stringify(timeTable));
 }
@@ -39,4 +58,12 @@ export function getDayData(day) {
   });
 
   return matchingDayData;
+}
+
+export function removeSubjectTimeTable(data, subjectName) {
+  let newSubjects = [];
+  data.subjects.forEach((subject) => {
+    (subject !== subjectName) ? newSubjects.push(subject) : 1;
+  });
+  data.subjects = newSubjects;
 }

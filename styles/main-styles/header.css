@@ -5,23 +5,19 @@
   margin-right: 0px;
 }
 
-.header-box {
-  background-color: gray;
-  height: 90px;
-}
-
 .header {
   position: sticky;
   top: 0px;
-  height: 91%;
+  height: 96%;
   padding: 1rem;
+  border-radius: 20px;
   display: grid;
   grid-template-columns: 70px 1fr 430px;
   grid-template-areas: "nav middle buttons";
-  border: none;
+  border-bottom: 2.5px solid rgb(255, 255, 255);
   width: 100%;
   align-items: center;
-  background-color: #01081b;
+  background-color: #040d24;
   box-shadow: 0px 0px 25px rgb(3, 0, 15);
 }
 
@@ -142,8 +138,8 @@
   border-radius: 100%;
   width: 40px;
   height: 40px;
-  margin-right: 0px;
-  background-color: #000617;
+  margin-left: 5px;
+  background-color: transparent;
   transition: all 0.4s ease;
   cursor: pointer;
 }
