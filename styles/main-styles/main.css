@@ -430,4 +430,17 @@
     font-size: 12.4px;
     margin-bottom: 13px;
   }
+  .main-box-3 {
+    margin: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.no-subjects {
+  color: white;
+  margin: 10px 0px;
+  font-size: 15px;
+  font-weight: 350;
+  margin-left: 5%;
+  text-shadow: 1px 1px 1px black;
 }

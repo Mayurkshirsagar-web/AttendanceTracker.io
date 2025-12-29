@@ -61,9 +61,13 @@ export function getDayData(day) {
 }
 
 export function removeSubjectTimeTable(data, subjectName) {
-  let newSubjects = [];
-  data.subjects.forEach((subject) => {
-    (subject !== subjectName) ? newSubjects.push(subject) : 1;
-  });
-  data.subjects = newSubjects;
+  
+  for (let i = 0; i < data.subjects.length; i++) {
+    if (subjectName === data.subjects[i]) {
+      data.subjects.splice(i, 1);
+      break;
+    }
+  }
+
+  saveInStorage();
 }

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/main-styles/sidebar.css">
     <link rel="stylesheet" href="styles/main-styles/header.css">
     <link rel="stylesheet" href="styles/main-styles/footer.css">
-    <link rel="stylesheet" href="styles/main-styles/main.css">
+    <link rel="stylesheet" href="styles/main-styles-at/main.css">
     
   </head>
   <body id="top">
@@ -65,8 +65,8 @@
 
         <div class="header-end-part">
 
-          <button class="subject-attendance-chart header-buttons">
-            <a href="attendance-chart.html" style="text-decoration: none; color: white;">Attendance Chart</a>
+          <button style="margin-left: 20px;" class="subject-attendance-chart header-buttons">
+            <a href="home-page.html" style="text-decoration: none; color: white;">Time Table</a>
           </button>
 
           <button class="info-page-button header-buttons">
@@ -79,41 +79,8 @@
         </div>
       </header>
 
-      <main class="main-box">
-        <div class="main-box-1">
-          <span class="basic-working">How it Works ?</span>
-          <div class="basic-dis">This attendance tracker utilizes your custom timetable data to automate all attendance calculations. Simply input your subjects below to establish your baseline schedule. At the end of each day, log your attendance for each period to keep your records up to date. To ensure accurate background processing, please verify that subject names are entered exactly as they appear in your timetable.</div>
-        </div>
+      <main class="main-box-at">
 
-        <div class="main-box-1 main-box-1-2">
-          <span class="basic-working">How to use ?</span>
-          <div class="basic-dis">1. Configure Timetable &#8594  your subject list and schedule in the sections below.</div>
-          <div class="basic-dis">2. Daily Updates &#8594 Record your attendance at the end of each day. </div>
-          <div class="basic-dis">3. Automated Logic &#8594 The system calculates your percentages automatically based on your inputs. </div>
-          <div class="basic-dis">4. Note &#8594 Ensure subject names match perfectly to avoid processing errors. </div>
-        </div>
-
-        <div class="main-box-2"></div>
-
-        <div class="main-box-3">
-          <div class="start-day-box input-days-box">
-            <span class="input-days-title">Begin Tracking On</span>
-            <div style="display: flex; align-items: center;">
-              <input type="date" class="input-start-date input-date">
-              <button class="edit-date-button-start edit-date-button">Confirm</button>
-            </div>
-            <div class="display-start-day display-day"></div>
-          </div>
-
-          <div class="end-day-box input-days-box">
-            <span class="input-days-title">Stop Tracking On</span>
-            <div style="display: flex; align-items: center;">
-              <input type="date" class="input-end-date input-date">
-              <button class="edit-date-button-end edit-date-button">Confirm</button>
-            </div>
-            <div class="display-end-day display-day"></div>
-          </div>
-        </div>
       </main>
 
       <footer class="footer">
@@ -127,5 +94,5 @@
     </div>
   </body>
 
-  <script src="script/time-table.js" type="module"></script>
+  <script src="script/time-table-at.js" type="module"></script>
 </html>

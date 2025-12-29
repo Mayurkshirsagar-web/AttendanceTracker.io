@@ -1,14 +1,12 @@
 import {timeTable, saveInStorage, getDayData, removeSubjectTimeTable, startEndDate, saveStartDate, saveEndDate} from '../data/time-table.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import { addSubjectToList, removeSubjectFromList } from '../data/subject.js';
 
 renderTimeTable();
 
 // display of dates at opening og page
-document.querySelector('.display-start-day')
-  .innerHTML = dayjs(startEndDate.startDate).format('dddd MMM DD');
-
-document.querySelector('.display-end-day')
-  .innerHTML = dayjs(startEndDate.endDate).format('dddd MMM DD');
+(!dayjs(startEndDate.startDate) || !dayjs(startEndDate.startDate).isValid()) ? document.querySelector('.display-start-day').innerText = 'No Date Selected' : document.querySelector('.display-start-day').innerHTML = dayjs(startEndDate.startDate).format('dddd MMM DD');
+(!dayjs(startEndDate.endDate) || !dayjs(startEndDate.endDate).isValid()) ? document.querySelector('.display-end-day').innerText = 'No Date Selected' : document.querySelector('.display-end-day').innerHTML = dayjs(startEndDate.endDate).format('dddd MMM DD');
 
 // event listener for nav button
 document.querySelectorAll('.nav-button')
@@ -55,7 +53,12 @@ function renderTimeTable() {
       `;
     });
 
-    return subjectHTML;
+    if (subjectHTML === '') {
+      return '<div class="no-subjects">Add Subjects to Start</div>';
+    }
+    else {
+      return subjectHTML;
+    }
   }
 
   // event listeners for Add button
@@ -84,7 +87,6 @@ function renderTimeTable() {
         if (event.key === 'Enter') {
           (inputValue !== '') ? addSubject(day, inputValue) : alert('Please enter a Subject Name!');
           input.value = '';
-          saveInStorage();
           renderTimeTable();
         }
       });
@@ -98,7 +100,6 @@ function renderTimeTable() {
         let subjectName = button.dataset.subjectName;
 
         removeSubject(day, subjectName);
-        saveInStorage();
         renderTimeTable();
       });
     });
@@ -160,10 +161,13 @@ function renderTimeTable() {
 function addSubject(day, inputValue) {
   const dayData = getDayData(day);
   dayData.subjects.push(inputValue);
+  saveInStorage();
+  addSubjectToList(inputValue);
 }
 
 // logic for removing subjects
 function removeSubject(day, subjectName) {
   const dayData = getDayData(day);
   removeSubjectTimeTable(dayData, subjectName);
+  removeSubjectFromList(subjectName);
 }
