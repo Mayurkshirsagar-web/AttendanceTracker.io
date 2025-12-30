@@ -23,7 +23,7 @@ export const timeTable = JSON.parse(localStorage.getItem('time-table-data')) || 
     day: "Saturday",
     subjects: []
   }
-]
+];
 
 export const startEndDate = JSON.parse(localStorage.getItem('start-end-date-data')) || {
   startDate: '',

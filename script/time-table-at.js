@@ -1,3 +1,7 @@
+import { subjectDataSort, clearSubjectsData } from "../data-at/subject.js";
+
+clearSubjectsData();
+subjectDataSort();
 // event listener for nav button
 document.querySelectorAll('.nav-button')
   .forEach((button) => {

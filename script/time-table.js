@@ -1,6 +1,5 @@
 import {timeTable, saveInStorage, getDayData, removeSubjectTimeTable, startEndDate, saveStartDate, saveEndDate} from '../data/time-table.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import { addSubjectToList, removeSubjectFromList } from '../data/subject.js';
 
 renderTimeTable();
 
@@ -162,12 +161,10 @@ function addSubject(day, inputValue) {
   const dayData = getDayData(day);
   dayData.subjects.push(inputValue);
   saveInStorage();
-  addSubjectToList(inputValue);
 }
 
 // logic for removing subjects
 function removeSubject(day, subjectName) {
   const dayData = getDayData(day);
   removeSubjectTimeTable(dayData, subjectName);
-  removeSubjectFromList(subjectName);
 }
