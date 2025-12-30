@@ -103,3 +103,77 @@ function dayCounter(day) {
   return dayCount;
 }
 
+function calRelativePercent() {
+  subjectsData.forEach((subjectData) => {
+    const totalConducted = subjectData.present + subjectData.absent;
+
+    if (totalConducted === 0) {
+      subjectData.relativePercentage = 0; 
+    } else {
+      const calculation = (subjectData.present / totalConducted) * 100;
+      
+      subjectData.relativePercentage = Number(calculation.toFixed(2));
+    }
+  });
+
+  saveToStorage();
+}
+
+function calTotalPercent() {
+  subjectsData.forEach((subjectData) => {
+    const denominator = subjectData.totalClasses - subjectData.cancelled;
+    if (denominator <= 0) {
+      subjectData.totalPercentage = 0;
+    } else {
+      const calculation = (subjectData.present / denominator) * 100;
+      subjectData.totalPercentage = Number(calculation.toFixed(2));
+    }
+  });
+
+  saveToStorage();
+}
+
+function classPresent(subjectName) {
+  let MatchingData;
+
+  subjectsData.forEach((subjectData) => {
+    if (subjectData.subjectName === subjectName) {
+      MatchingData = subjectData;
+    }
+  });
+
+  MatchingData.present += 1;
+  calRelativePercent();
+  calTotalPercent();
+  saveToStorage();
+}
+
+function classAbsent(subjectName) {
+  let MatchingData;
+
+  subjectsData.forEach((subjectData) => {
+    if (subjectData.subjectName === subjectName) {
+      MatchingData = subjectData;
+    }
+  });
+
+  MatchingData.absent += 1;
+  calRelativePercent();
+  calTotalPercent();
+  saveToStorage();
+}
+
+function classCancelled(subjectName) {
+  let MatchingData;
+
+  subjectsData.forEach((subjectData) => {
+    if (subjectData.subjectName === subjectName) {
+      MatchingData = subjectData;
+    }
+  });
+
+  MatchingData.cancelled += 1
+  calRelativePercent();
+  calTotalPercent();
+  saveToStorage();
+}
