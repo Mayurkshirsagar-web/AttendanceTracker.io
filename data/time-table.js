@@ -1,53 +1,64 @@
-export const timeTable = JSON.parse(localStorage.getItem('time-table-data')) || [
-  {
-    day: "Monday",
-    dayId: 1,
-    subjects: []
-  },
-  {
-    day: "Tuesday",
-    dayId: 2,
-    subjects: []
-  },
-  {
-    day: "Wednesday",
-    dayId: 3,
-    subjects: []
-  },
-  {
-    day: "Thursday",
-    dayId: 4,
-    subjects: []
-  },
-  {
-    day: "Friday",
-    dayId: 5,
-    subjects: []
-  },
-  {
-    day: "Saturday",
-    dayId: 6,
-    subjects: []
-  }
-];
+export function loadTimeTable() {
+  const timeTable = JSON.parse(localStorage.getItem('time-table-data')) || [
+    {
+      day: "Monday",
+      dayId: 1,
+      subjects: []
+    },
+    {
+      day: "Tuesday",
+      dayId: 2,
+      subjects: []
+    },
+    {
+      day: "Wednesday",
+      dayId: 3,
+      subjects: []
+    },
+    {
+      day: "Thursday",
+      dayId: 4,
+      subjects: []
+    },
+    {
+      day: "Friday",
+      dayId: 5,
+      subjects: []
+    },
+    {
+      day: "Saturday",
+      dayId: 6,
+      subjects: []
+    }
+  ];
 
-export const startEndDate = JSON.parse(localStorage.getItem('start-end-date-data')) || {
-  startDate: '',
-  endDate: ''
-};
+  return timeTable;
+}
+
+export let timeTable = loadTimeTable();
+export let startEndDate = loadStartEndDates();
+
+export function loadStartEndDates() {
+  const startEndDate = JSON.parse(localStorage.getItem('start-end-date-data')) || {
+    startDate: '',
+    endDate: ''
+  };
+
+  return startEndDate;
+}
 
 export function saveStartDate(dates) {
-  localStorage.setItem('start-end-date-data', JSON.stringify({
-    startDate: dates,
-    endDate: ''
-  }));
+  // Update the actual object in memory first!
+  startEndDate.startDate = dates; 
+  
+  localStorage.setItem('start-end-date-data', JSON.stringify(startEndDate));
 }
 
 export function saveEndDate(dates) {
-  localStorage.setItem('start-end-date-data', JSON.stringify({
-    startDate: startEndDate.startDate,
-    endDate: dates
-  }));
+  // Update the actual object in memory first!
+  startEndDate.endDate = dates;
+
+  localStorage.setItem('start-end-date-data', JSON.stringify(startEndDate));
 }
 
 export function saveInStorage() {
@@ -76,4 +87,34 @@ export function removeSubjectTimeTable(data, subjectName) {
   }
 
   saveInStorage();
+}
+
+export function dataChecker() {
+  let checkDate = true;
+  let checkSubjects = true;
+  let subjectCount = subjectCounter();
+
+  
+
+  if (loadStartEndDates().startDate === '' || loadStartEndDates().endDate === '') {
+    checkDate = false;
+  } 
+  if (subjectCount === 0) {
+    checkSubjects = false;
+  }
+
+  if (!checkDate || !checkSubjects) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
+export function subjectCounter () {
+  let subjectCount = 0;
+  loadTimeTable().forEach((dayData) => {
+    subjectCount += dayData.subjects.length;
+  });
+  return subjectCount;
 }

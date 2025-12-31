@@ -1,6 +1,9 @@
-import {timeTable, saveInStorage, getDayData, removeSubjectTimeTable, startEndDate, saveStartDate, saveEndDate} from '../data/time-table.js';
+import {timeTable, loadTimeTable, loadStartEndDates, saveInStorage, getDayData, removeSubjectTimeTable, startEndDate, saveStartDate, saveEndDate, dataChecker} from '../data/time-table.js';
+import { subjectDataSort, subjectsData, removeSubjectFromData } from '../data-at/subject.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
+loadTimeTable();
+loadStartEndDates();
 renderTimeTable();
 
 // display of dates at opening og page
@@ -156,6 +159,17 @@ function renderTimeTable() {
     });
 }
 
+document.querySelector('.subject-attendance-chart')
+  .addEventListener('click', () => {
+    if (dataChecker()) {
+      subjectDataSort();
+      window.location.href = 'attendance-chart.html';
+    }
+    else {
+      alert('Please first Setup the tracker to Start!');
+    }
+  });
+
 // logic for adding subjects
 function addSubject(day, inputValue) {
   const dayData = getDayData(day);
@@ -167,4 +181,5 @@ function addSubject(day, inputValue) {
 function removeSubject(day, subjectName) {
   const dayData = getDayData(day);
   removeSubjectTimeTable(dayData, subjectName);
+  removeSubjectFromData(day, subjectName);
 }

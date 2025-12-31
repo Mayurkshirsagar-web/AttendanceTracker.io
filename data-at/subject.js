@@ -40,6 +40,7 @@ export function subjectDataSort() {
           totalPercentage: 0
         });
 
+        subjectsData[0].weekData[dayData.day] = 0;
         subjectsData[0].weekData[dayData.day] += 1;
       }
       else if (flag === 1) {
@@ -50,6 +51,7 @@ export function subjectDataSort() {
           }
         });
 
+        MatchingData.weekData[dayData.day] = 0;
         MatchingData.weekData[dayData.day] += 1;
       }
 
@@ -57,11 +59,11 @@ export function subjectDataSort() {
   });
 
   totalClassCounter();
+  checkTotalClasses();
   calRelativePercent();
   calTotalPercent();
   statusGiver(75);
   saveToStorage();
-  console.log(subjectsData);
 }
 
 export function clearSubjectsData() {
@@ -120,6 +122,8 @@ function calRelativePercent() {
     }
   });
 
+  
+  statusGiver(75);
   saveToStorage();
 }
 
@@ -137,7 +141,7 @@ function calTotalPercent() {
   saveToStorage();
 }
 
-function classPresent(subjectName) {
+export function classPresent(subjectName) {
   let MatchingData;
 
   subjectsData.forEach((subjectData) => {
@@ -149,11 +153,10 @@ function classPresent(subjectName) {
   MatchingData.present += 1;
   calRelativePercent();
   calTotalPercent();
-  statusGiver(75);
   saveToStorage();
 }
 
-function classAbsent(subjectName) {
+export function classAbsent(subjectName) {
   let MatchingData;
 
   subjectsData.forEach((subjectData) => {
@@ -165,11 +168,10 @@ function classAbsent(subjectName) {
   MatchingData.absent += 1;
   calRelativePercent();
   calTotalPercent();
-  statusGiver(75);
   saveToStorage();
 }
 
-function classCancelled(subjectName) {
+export function classCancelled(subjectName) {
   let MatchingData;
 
   subjectsData.forEach((subjectData) => {
@@ -179,9 +181,7 @@ function classCancelled(subjectName) {
   });
 
   MatchingData.cancelled += 1
-  calRelativePercent();
   calTotalPercent();
-  statusGiver();
   saveToStorage();
 }
 
@@ -199,3 +199,28 @@ function statusGiver(attendanceCriteria) {
     }
   });
 }
+
+export function removeSubjectFromData(day, subjectNamePara) {
+  let matchingSubjectData;
+
+  subjectsData.forEach((subjectData) => {
+    if (subjectData.subjectName === subjectNamePara) {
+      matchingSubjectData = subjectData;
+    }
+  });
+
+  matchingSubjectData.weekData[day] -= 1;
+
+  checkTotalClasses();
+  saveToStorage();
+}
+
+function checkTotalClasses() {
+  subjectsData.forEach((subjectData, i) => {
+    if (subjectData.totalClasses <= 0) {
+      subjectsData.splice(i, 1);
+    }
+  });
+}
+
+  console.log(subjectsData);
