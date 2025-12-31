@@ -89,14 +89,19 @@
 .subjects-at-display-box {
   background-color: rgb(46, 59, 2);
   width: 95%;
-  max-height: 120px;
+  min-height: 100px;
   padding: 9px 13px;
+  margin-top: 15px;
   margin-bottom: 1.5%;
   border-top: 2px solid white;
   border-left: 2px solid white;
   box-shadow: 2.5px 2.5px 0.001px black;
   border-radius: 10px;
   overflow-y: auto;
+}
+
+.display-no {
+  display: none;
 }
 
 .subjects-at-display {
@@ -172,7 +177,7 @@
 }
 
 .all-subjects-display-box {
-  margin: 13px;
+  margin: 30px;
   margin-top: 5px;
   margin-bottom: 30px;
   border-radius: 10px;
@@ -182,13 +187,12 @@
 
 .all-subjects-display-box {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   padding: 15px;
-  gap: 17px;
+  gap: 20px;
 }
 
 .subject-data-box {
-  background-color: rgb(12, 54, 6);
   border-radius: 10px;
   box-shadow: 3px 3px 0.01px rgb(16, 3, 3);
   display: flex;
@@ -197,7 +201,6 @@
   align-items: center;
   gap: 7px;
   padding-bottom: 15px;
-  border: 1px solid black;
 }
 
 .subject-name-box {
@@ -274,7 +277,7 @@
 }
 
 .bar-box {
-  background-color: rgb(211, 103, 103);
+  background-color: rgb(125, 125, 125);
   height: 20px;
   margin-top: 5px;
   width: 90%;
@@ -283,11 +286,33 @@
 }
 
 .bar-width-box {
-  background-color: rgb(148, 32, 32);
+  background-color: rgb(76, 76, 76);
   height: 17px;
   margin-top: 0px;
   width: 80%;
   border-radius: 7px;
+}
+
+.not-today {
+  margin: 20px;
+  margin-top: 80px;
+  font-family: "BBH Bartle";
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: white;
+  text-shadow: 2px 2px 0.01px rgb(40, 16, 16);
+}
+
+.good {
+  background-color: rgb(7, 52, 2);
+}
+
+.medium {
+  background-color: rgb(37, 37, 37);
+}
+
+.bad {
+  background-color: rgb(81, 12, 12);
 }
 
 @media (max-width: 700px) {
@@ -297,11 +322,12 @@
     z-index: 3;
   }
   .date-display-box {
-    margin-top: 25px;
+    margin-top: 20px;
   }
   .subjects-at-display-box {
     margin-bottom: 3.5%;
     padding-top: 6px;
+    margin-top: 3%;
   }
   .Tracker-button {
     margin: 0px 1px;
@@ -313,6 +339,10 @@
   .subject-data-box {
     gap: 10px;
   }
+  .subject-name {
+    font-size: 17px;
+  }
+  
 }
 
 @media (min-width: 701px) and (max-width: 1024px) {
@@ -363,6 +393,7 @@
   }
   .date-display-box {
     margin-top: 13px;
+    font-size: 15px;
   }
   .subjects-at-display-box {
     max-height: 100px;
@@ -370,5 +401,9 @@
   .all-subjects-display-box {
     grid-template-columns: 1fr;
     padding: 15px;
+  }
+  .not-today {
+    margin-top: 55px;
+    font-size: 15px;
   }
 }

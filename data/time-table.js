@@ -1,26 +1,32 @@
 export const timeTable = JSON.parse(localStorage.getItem('time-table-data')) || [
   {
     day: "Monday",
+    dayId: 1,
     subjects: []
   },
   {
     day: "Tuesday",
+    dayId: 2,
     subjects: []
   },
   {
     day: "Wednesday",
+    dayId: 3,
     subjects: []
   },
   {
     day: "Thursday",
+    dayId: 4,
     subjects: []
   },
   {
     day: "Friday",
+    dayId: 5,
     subjects: []
   },
   {
     day: "Saturday",
+    dayId: 6,
     subjects: []
   }
 ];

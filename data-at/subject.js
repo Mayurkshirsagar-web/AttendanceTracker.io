@@ -31,10 +31,11 @@ export function subjectDataSort() {
             Friday: 0,
             Saturday: 0
           },
+          status: '',
           totalClasses: 0,
           present: 0,
           absent: 0,
-          cancelled : 0,
+          cancelled: 0,
           relativePercentage: 0,
           totalPercentage: 0
         });
@@ -56,6 +57,9 @@ export function subjectDataSort() {
   });
 
   totalClassCounter();
+  calRelativePercent();
+  calTotalPercent();
+  statusGiver(75);
   saveToStorage();
   console.log(subjectsData);
 }
@@ -108,7 +112,7 @@ function calRelativePercent() {
     const totalConducted = subjectData.present + subjectData.absent;
 
     if (totalConducted === 0) {
-      subjectData.relativePercentage = 0; 
+      subjectData.relativePercentage = 100; 
     } else {
       const calculation = (subjectData.present / totalConducted) * 100;
       
@@ -145,6 +149,7 @@ function classPresent(subjectName) {
   MatchingData.present += 1;
   calRelativePercent();
   calTotalPercent();
+  statusGiver(75);
   saveToStorage();
 }
 
@@ -160,6 +165,7 @@ function classAbsent(subjectName) {
   MatchingData.absent += 1;
   calRelativePercent();
   calTotalPercent();
+  statusGiver(75);
   saveToStorage();
 }
 
@@ -175,5 +181,21 @@ function classCancelled(subjectName) {
   MatchingData.cancelled += 1
   calRelativePercent();
   calTotalPercent();
+  statusGiver();
   saveToStorage();
+}
+
+function statusGiver(attendanceCriteria) {
+  subjectsData.forEach((subjectData) => {
+    let modifiedCriteria = ((100 - Number(attendanceCriteria)) / 2).toFixed(2) + Number(attendanceCriteria);
+
+    if (subjectData.relativePercentage <= Number(attendanceCriteria)){
+      subjectData.status = 'bad';
+    } else if (subjectData.relativePercentage >= modifiedCriteria) {
+      subjectData.status = 'good';
+    }
+    else {
+      subjectData.status = 'medium';
+    }
+  });
 }

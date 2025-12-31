@@ -115,7 +115,7 @@ function renderTimeTable() {
       return alert('Please select a Date to Start!');
     }
 
-    if (!selectedDate.isAfter(today, 'day')) {
+    if (selectedDate.isBefore(today, 'day')) {
       return alert('Please select a future date to Start!');
     }
 
