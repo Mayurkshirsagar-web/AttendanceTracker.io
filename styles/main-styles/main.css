@@ -1,15 +1,15 @@
 .main-box {
   background-color: rgb(0, 0, 6);
   display: grid;
-  grid-template-rows: 180px 215px 1.5fr 225px;
+  grid-template-rows: 210px 225px 1fr 210px 130px;
+  gap: 15px;
 }
 
 .main-box-1 {
   display: flex;
   justify-content: center;
-  border: 2px solid white;
   margin: 0px 20px;
-  margin-top: 23px;
+  margin-top: 33px;
   border-radius: 10px;
   flex-direction: column;
   align-items: center;
@@ -100,14 +100,13 @@
 .main-box-2 {
   background-color: rgb(82, 79, 18);
   height: auto;
-  margin: 10px 19px;
+  margin: 10px 50px;
   margin-bottom: 23px;
   border-radius: 10px;
-  margin: 15px;
-  border: 3px solid rgb(183, 179, 137);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  padding: 0px 3px;
+  grid-template-columns: 1fr 1fr 1fr ;
+  padding: 20px;
+  gap: 25px;
   box-shadow: 0px 0px 10px rgb(4, 28, 36);
 }
 
@@ -146,13 +145,11 @@
   background-color: rgb(32, 35, 3);
   max-height: 40vh;
   height: 35vh;
-  margin: 10px 12px;
-  margin-bottom: 15px;
   border-radius: 10px;
   display: grid;
   border-top: 3px solid rgb(18, 111, 18);
   border-left: 3px solid rgb(26, 91, 26);
-  grid-template-rows: 35px 45px 1fr;
+  grid-template-rows: 60px 55px 1fr;
   box-shadow: 4px 4px 2px rgb(19, 2, 9);
   justify-items: center;
 }
@@ -160,20 +157,21 @@
 .day-span {
   font-family: "BBH Bartle";
   color: white;
-  font-size: 15px;
+  font-size: 18px;
   letter-spacing: 1px;
   margin-top: 6%;
   text-shadow: 2px 2px 0.001px rgb(67, 5, 5);
 }
 
 .subject-input-box {
-  width: 95%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px none white;
   border-radius: 3px;
   padding: 5px;
+  height: 55px;
 }
 
 .subject-display-box::-webkit-scrollbar {
@@ -193,7 +191,7 @@
 .subject-input {
   color: white;
   height: 85%;
-  width: 74%;
+  width: 76%;
   padding: 7px;
   border-radius: 3px;
   background-color: rgb(63, 63, 36);
@@ -204,12 +202,12 @@
 }
 
 .subject-input::placeholder {
-  font-size: 12px;
+  font-size: 14.5px;
   color: white;
 }
 
 .subject-button-add {
-  width: 47px;
+  width: 50px;
   height: 85%;
   font-weight: 600;
   background-color: rgb(45, 143, 45);
@@ -250,15 +248,17 @@
 .subject-name {
   color: white;
   letter-spacing: 0.5px;
+  font-size: 20px;
   text-shadow: 1px 1px 0.001px rgb(19, 33, 50);
 }
 
 .subject-button-remove {
   width: 60px;
-  height: 125%;
+  height: 155%;
   background-color: rgb(202, 53, 53);
   border: none;
   border-radius: 6px;
+  margin-right: 3px;
   font-weight: 600;
   letter-spacing: 0.5px;
   color: white;
@@ -274,12 +274,9 @@
 .main-box-3 {
   background-color: rgb(28, 5, 27);
   border-radius: 10px;
-  margin: 20px;
-  margin-top: 13px;
+  margin: 0px 35px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 2px solid rgb(231, 165, 165);
-  box-shadow: 0px 0px 10px rgb(5, 32, 41);
 }
 
 .input-days-box {
@@ -308,7 +305,7 @@
   display: flex;
   justify-content: center;
   font-size: 16px;
-  border: 3px solid rgb(26, 5, 5);
+  border: none;
   background-color: rgb(61, 15, 36);
   font-weight: 600;
   color: white;
@@ -318,15 +315,13 @@
 
 .edit-date-button {
   margin-left: 20px;
-  padding: 8px;
-  height: 35px;
+  padding: 8.5px;
   border-radius: 8px;
   font-weight: 600;
   color: white;
-  background-color: rgb(61, 15, 36);
-  border-top: 2px solid white;
-  border-left: 2px solid white;
-  box-shadow: 2px 2px 0.001px black;
+  background-color: rgb(60, 13, 34);
+  box-shadow: 2px 2px rgb(41, 6, 6);
+  border: none;
 }
 
 .edit-date-button:hover {
@@ -340,6 +335,15 @@
   letter-spacing: 1px;
   font-size: 23px;
   font-weight: 500;
+}
+
+.no-subjects {
+  color: white;
+  margin: 30px 0px;
+  font-size: 20px;
+  font-weight: 450;
+  margin-left: 20%;
+  text-shadow: 1px 1px 1px black;
 }
 
 @media (max-width: 700px) {
@@ -411,12 +415,22 @@
     font-size: 17px;
   }
   .main-box-2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     height: auto;
+    padding: 0px;
+    gap: 0px;
+    width: 90%;
+    margin: 15px 20px;
+  }
+  .time-table-box {
+    height: 50vh;
   }
   .day-span {
-    font-size: 10px;
-    margin-top: 15px;
+    font-size: 15px;
+    margin-top: 25px;
+  }
+  .no-subjects {
+    font-size: 18px;margin-left: 19px;
   }
   .time-table-box {
     max-height: 33vh;
@@ -433,14 +447,6 @@
   .main-box-3 {
     margin: 10px;
     margin-bottom: 20px;
+    width: 94%;
   }
-}
-
-.no-subjects {
-  color: white;
-  margin: 10px 0px;
-  font-size: 15px;
-  font-weight: 350;
-  margin-left: 5%;
-  text-shadow: 1px 1px 1px black;
 }
