@@ -1,5 +1,4 @@
 .side-panel {
-  background-color: #060e1b;
   height: 97vh;
   position: fixed;
   border-radius: 20px;
@@ -13,6 +12,37 @@
   grid-template-rows: 65px 1fr 100px;
   padding: 1rem;
   display: grid;
+}
+
+.side-panel {
+    background: linear-gradient(1deg, #010a19, #01112c, #3a7de6);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 5s ease infinite;
+    -moz-animation: AnimationName 5s ease infinite;
+    -o-animation: AnimationName 5s ease infinite;
+    animation: AnimationName 5s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 @media (max-width: 480px) {
@@ -29,7 +59,7 @@
 .top-part, .middle-part, .bottom-part {
   display: flex;
   align-items: center;
-  background-color: #000617;
+  background-color: #010920;
   padding: 0.5rem 1.1rem;
   border: 2px none rgb(82, 82, 82);
   border-radius: 10px;

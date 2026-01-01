@@ -2,13 +2,21 @@ import { subjectsData, classPresent, classAbsent, classCancelled } from "../data
 import { timeTable, startEndDate } from "../data/time-table.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  
+  // A small delay ensures the transition is smooth even if the page loads fast
+  setTimeout(() => {
+    loader.classList.add("loader-hidden");
+  }, 800); 
+});
+
 const Today = dayjs();
 const todayString = Today.format('YYYY-MM-DD'); 
 const TodayDayId = Today.day(); 
 
 const startDate = dayjs(startEndDate.startDate);
 const endDate = dayjs(startEndDate.endDate);
-
 
 syncMarkedList();
 renderSubjectCards();

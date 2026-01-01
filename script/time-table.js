@@ -1,6 +1,15 @@
 import {timeTable, attendanceCriteria, checkAttendanceCriteria, setAttendanceCriteria, resetTimeTableData, loadTimeTable, loadStartEndDates, saveInStorage, getDayData, removeSubjectTimeTable, startEndDate, saveStartDate, saveEndDate, dataChecker} from '../data/time-table.js';
-import { subjectDataSort, removeSubjectFromData } from '../data-at/subject.js';
+import { subjectDataSort, removeSubjectFromData, subjectsData } from '../data-at/subject.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  
+  // A small delay ensures the transition is smooth even if the page loads fast
+  setTimeout(() => {
+    loader.classList.add("loader-hidden");
+  }, 800); 
+});
 
 loadTimeTable();
 loadStartEndDates();

@@ -1,4 +1,4 @@
-import {timeTable, attendanceCriteria} from '../data/time-table.js';
+import {timeTable, attendanceCriteria, loadTimeTable} from '../data/time-table.js';
 import { startEndDate } from '../data/time-table.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
@@ -10,7 +10,7 @@ export function saveToStorage() {
 
 export function subjectDataSort() {
 
-  timeTable.forEach((dayData) => {
+  loadTimeTable().forEach((dayData) => {
     dayData.subjects.forEach((subject) => {
       let flag = 0;
 
@@ -213,6 +213,7 @@ export function removeSubjectFromData(day, subjectNamePara) {
     matchingSubjectData.weekData[day] -= 1;
   }
 
+  totalClassCounter();
   checkTotalClasses();
   saveToStorage();
 }
