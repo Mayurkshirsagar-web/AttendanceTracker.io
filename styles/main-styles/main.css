@@ -1,14 +1,14 @@
 .main-box {
   background-color: rgb(0, 0, 6);
   display: grid;
-  grid-template-rows: 210px 225px 1fr 210px 130px;
+  grid-template-rows: 210px 235px 1fr 210px 220px;
   gap: 15px;
 }
 
 .main-box-1 {
   display: flex;
   justify-content: center;
-  margin: 0px 20px;
+  margin: 0px 40px;
   margin-top: 33px;
   border-radius: 10px;
   flex-direction: column;
@@ -105,8 +105,8 @@
   border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
-  padding: 20px;
-  gap: 25px;
+  padding: 25px;
+  gap: 30px;
   box-shadow: 0px 0px 10px rgb(4, 28, 36);
 }
 
@@ -239,7 +239,7 @@
 }
 
 .subject-display {
-  margin: 7px 0px;
+  margin: 9px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -254,7 +254,7 @@
 
 .subject-button-remove {
   width: 60px;
-  height: 155%;
+  height: 145%;
   background-color: rgb(202, 53, 53);
   border: none;
   border-radius: 6px;
@@ -276,6 +276,7 @@
   border-radius: 10px;
   margin: 0px 35px;
   display: grid;
+  padding: 5px 10px;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -346,9 +347,90 @@
   text-shadow: 1px 1px 1px black;
 }
 
+.attendance-criteria-box {
+  background-color: rgb(74, 4, 39);
+  border-radius: 10px;
+  margin: 35px 180px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 5px 5px 0.01px rgb(34, 0, 18);
+}
+
+.attendance-criteria-title {
+  font-family: "BBH Bartle";
+  color: white;
+  letter-spacing: 1px;
+  font-size: 20px;
+  text-shadow: 2px 2px 0.001px rgb(29, 1, 35);
+}
+
+.attendance-criteria-box-2 {
+  display: flex;
+  gap: 35px;
+}
+
+.input-criteria-box {
+  height: 100%;
+  width: 80%;
+  padding: 7px;
+  color: white;
+  border-radius: 3px;
+  background-color: rgb(63, 36, 52);
+  border: 2px solid rgb(24, 104, 60);
+  border-bottom: 0px;
+  border-right: 0px;
+  box-shadow: 2px 2px 0.001px rgb(31, 6, 26);
+}
+
+.input-criteria-box::placeholder {
+  font-size: 14.5px;
+  color: white;
+}
+
+.percentage-attendance-criteria {
+  color: white;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.attendance-criteria-button {
+  width: 30%;
+  background-color: rgb(63, 36, 52);
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 0.01px rgb(19, 1, 25);
+  font-weight: 500;
+}
+
+.attendance-criteria-button:hover {
+  color: rgb(63, 36, 52);
+  background-color: rgb(158, 158, 158);
+  font-weight: 600;
+}
+
+.selected-attendance-criteria {
+  color: white;
+  letter-spacing: 2px;
+  font-size: 23px;
+  font-weight: 500;
+  text-shadow: 2px 2px 0.01px rgb(33, 0, 0);
+}
+
+.header-logo {
+  width: 190px;
+  border-radius: 10px;
+  margin-top: -5px;
+  margin-left: 20px;
+}
+
 @media (max-width: 700px) {
   .back-to-top {
-    right: -3px;
+    right: 35px;
     top: 17px;
     z-index: 3;
   }
@@ -356,42 +438,73 @@
     font-size: 19px;
   }
   .main-box {
-    grid-template-rows: 310px 310px 1fr 400px;
+    grid-template-rows: 310px 310px 1fr 400px 220px;
+  }
+  .main-box-1 {
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .basic-dis {
     margin-top: 2.5%;
   }
   .main-box-2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     height: auto;
+    padding: 20px 20px;
+    gap: 25px;
+    width: 91%;
+    margin: 15px 20px;
+  }
+  .no-subjects {
+    margin-left: 40px;
   }
   .day-span {
-    font-size: 12px;
+    font-size: 19px;
+    margin-top: 24px;
   }
   .time-table-box {
-    max-height: 25vh;
+    max-height: 35vh;
   }
   .main-box-3 {
     grid-template-columns: 1fr;
+    margin: 15px;
+    width: 93%;
+    padding: 0px;
+    margin-bottom: 40px;
   }
   .input-days-title {
-    font-size: 15px;
-    margin-bottom: 13px;
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+  .attendance-criteria-box {
+    margin: 20px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+  .attendance-criteria-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  .selected-attendance-criteria {
+    font-size: 19px;
+  }
+  .back-to-top {
+    background: transparent;
   }
 }
 
 @media (min-width: 701px) and (max-width: 1024px) {
   .back-to-top {
-    right: 23px;
+    right: 25px;
     top: 145px;
   }
   .main-box-2 {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     height: auto;
   }
   .main-box {
     margin-top:38px;
-    grid-template-rows: 215px 215px 1fr 230px;
+    grid-template-rows: 215px 215px 1fr 230px 210px;
   }
   .time-table-box {
     max-height: 25vh;
@@ -400,16 +513,33 @@
     font-size: 14.5px;
     margin-bottom: 13px;
   }
+  .main-box-3 {
+    width: 95%;
+    margin: 20px;
+    margin-bottom: 40px;
+  }
+  .no-subjects {
+    margin-left:  25px;
+  }
+  .attendance-criteria-box {
+    margin: 0px 40px;
+    margin-bottom: 50px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 410px) {
   .back-to-top {
-    right: 40px;
-    top: 28px;
+    right: 25px;
+    top: 17px;
+    background-color: transparent;
   }
   .main-box {
    margin-top: 43px;
-   grid-template-rows: 370px 380px 1fr 380px;
+   grid-template-rows: 320px 310px 1fr 380px 200px;
+   gap: 40px;
+  }
+  .main-box-1 {
+    margin: 0px 20px;
   }
   .basic-working {
     font-size: 17px;
@@ -417,36 +547,50 @@
   .main-box-2 {
     grid-template-columns: 1fr;
     height: auto;
-    padding: 0px;
+    padding: 10px;
     gap: 0px;
     width: 90%;
-    margin: 15px 20px;
-  }
-  .time-table-box {
-    height: 50vh;
+    margin: 0px 18px;
   }
   .day-span {
     font-size: 15px;
     margin-top: 25px;
   }
   .no-subjects {
-    font-size: 18px;margin-left: 19px;
+    font-size: 18px;
+    margin-left: 19px;
   }
   .time-table-box {
-    max-height: 33vh;
-    margin: 7% 6%;
+    max-height: 53vh;
+    height: 40vh;
+    margin: 4% 3%;
   }
   .subject-button-remove {
     font-size: 13px;
     margin-left: 8px;
   }
   .input-days-title {
-    font-size: 12.4px;
-    margin-bottom: 13px;
+    font-size: 12px;
+    margin-bottom: 0px;
   }
   .main-box-3 {
     margin: 10px;
-    margin-bottom: 20px;
-    width: 94%;
+    margin-bottom: 0px;
+    width: 95%;
+    padding: 0px;
+  }
+  .attendance-criteria-box {
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 0px;
+  }
+  .attendance-criteria-title{
+    font-size: 11px;
+  }
+  .attendance-criteria-box-2 {
+    gap: 5px;
+  }
+  .selected-attendance-criteria {
+    font-size: 19px;
   }
 }

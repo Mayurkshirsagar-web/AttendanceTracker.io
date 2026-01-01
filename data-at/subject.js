@@ -1,4 +1,4 @@
-import {timeTable} from '../data/time-table.js';
+import {timeTable, attendanceCriteria} from '../data/time-table.js';
 import { startEndDate } from '../data/time-table.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
@@ -62,7 +62,7 @@ export function subjectDataSort() {
   checkTotalClasses();
   calRelativePercent();
   calTotalPercent();
-  statusGiver(75);
+  statusGiver(attendanceCriteria);
   saveToStorage();
 }
 
@@ -123,7 +123,7 @@ function calRelativePercent() {
   });
 
   
-  statusGiver(75);
+  statusGiver(attendanceCriteria);
   saveToStorage();
 }
 
@@ -209,7 +209,9 @@ export function removeSubjectFromData(day, subjectNamePara) {
     }
   });
 
-  matchingSubjectData.weekData[day] -= 1;
+  if (matchingSubjectData !== undefined) {
+    matchingSubjectData.weekData[day] -= 1;
+  }
 
   checkTotalClasses();
   saveToStorage();
@@ -222,5 +224,3 @@ function checkTotalClasses() {
     }
   });
 }
-
-  console.log(subjectsData);

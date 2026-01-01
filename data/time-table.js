@@ -38,6 +38,26 @@ export function loadTimeTable() {
 export let timeTable = loadTimeTable();
 export let startEndDate = loadStartEndDates();
 
+export let attendanceCriteria = localStorage.getItem('attendance-Criteria-Data') || undefined;
+
+export function saveAttendanceCriteria() {
+  localStorage.setItem('attendance-Criteria-Data', attendanceCriteria);
+}
+
+export function setAttendanceCriteria(newValue) {
+  attendanceCriteria = newValue;
+  saveAttendanceCriteria(); // Save automatically when updated
+}
+
+export function checkAttendanceCriteria() {
+  if (attendanceCriteria == undefined) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
 export function loadStartEndDates() {
   const startEndDate = JSON.parse(localStorage.getItem('start-end-date-data')) || {
     startDate: '',
@@ -92,9 +112,8 @@ export function removeSubjectTimeTable(data, subjectName) {
 export function dataChecker() {
   let checkDate = true;
   let checkSubjects = true;
+  let checkCriteria = true;
   let subjectCount = subjectCounter();
-
-  
 
   if (loadStartEndDates().startDate === '' || loadStartEndDates().endDate === '') {
     checkDate = false;
@@ -102,8 +121,11 @@ export function dataChecker() {
   if (subjectCount === 0) {
     checkSubjects = false;
   }
+  if (attendanceCriteria == undefined) {
+    checkCriteria = false;
+  }
 
-  if (!checkDate || !checkSubjects) {
+  if (!checkDate || !checkSubjects || !checkCriteria) {
     return false;
   }
   else {
@@ -117,4 +139,21 @@ export function subjectCounter () {
     subjectCount += dayData.subjects.length;
   });
   return subjectCount;
+}
+
+export function resetTimeTableData() {
+  // Clear storage
+  localStorage.removeItem('time-table-data');
+  localStorage.removeItem('start-end-date-data');
+  localStorage.removeItem('attendance-Criteria-Data');
+
+  // Clear the memory variables by modifying them in place
+  timeTable.forEach(day => {
+    day.subjects = [];
+  });
+  
+  startEndDate.startDate = '';
+  startEndDate.endDate = '';
+
+  attendanceCriteria = undefined;
 }

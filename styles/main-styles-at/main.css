@@ -1,12 +1,13 @@
 .main-box-at {
   display: grid;
   grid-template-rows: 240px 1fr;
+  gap: 10px;
 }
 
 .day-subject-display-box {
-  margin: 18px;
+  margin: 28px;
+  margin-top: 30px;
   border-radius: 10px;
-  border: 2px solid white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +81,7 @@
 .date-display-box{
   font-family: "BBH Bartle";
   color: #ffffff;
-  font-size: 17px;
+  font-size: 18px;
   letter-spacing: 1px;
   margin-top: 1.4%;
   text-shadow: 2px 2px 0.001px rgb(67, 5, 5);
@@ -179,17 +180,16 @@
 .all-subjects-display-box {
   margin: 30px;
   margin-top: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   border-radius: 10px;
   height: auto;
-  border: 2px solid white;
 }
 
 .all-subjects-display-box {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  padding: 15px;
-  gap: 20px;
+  padding: 25px;
+  gap: 30px;
 }
 
 .subject-data-box {
@@ -234,7 +234,6 @@
   padding: 2%;
   border-radius: 7px;
   justify-content: center;
-  border: 2px solid white;
 }
 
 .attendance-track {
@@ -254,7 +253,6 @@
   padding: 2.5%;
   border-radius: 7px;
   justify-content: center;
-  border: 2px solid white;
 }
 
 .cancelled-box {
@@ -263,7 +261,6 @@
   padding: 2%;
   border-radius: 7px;
   justify-content: center;
-  border: 2px solid white;
 }
 
 .percentage-attendance {
@@ -317,7 +314,7 @@
 
 @media (max-width: 700px) {
   .back-to-top {
-    right: -3px;
+    right: 5px;
     top: 17px;
     z-index: 3;
   }
@@ -329,12 +326,17 @@
     padding-top: 6px;
     margin-top: 3%;
   }
+  .not-today {
+    font-size: 17px;
+    margin-top: 50px;
+  }
   .Tracker-button {
     margin: 0px 1px;
   }
   .all-subjects-display-box {
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 25px;
+    gap: 30px;
   }
   .subject-data-box {
     gap: 10px;
@@ -364,8 +366,17 @@
   .Tracker-button {
     margin: 0px 3px;
   }
+  .subject-data-box {
+    height: 34vh;
+  }
+  .not-today {
+    font-size: 18px;
+    margin-top: 50px;
+  }
   .all-subjects-display-box {
     grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+    height: auto;
   }
 }
 
@@ -375,7 +386,7 @@
     top: 28px;
   }
   .day-subject-display-box {
-    margin-top: 60px;
+    margin-top: 45px;
   }
   .Tracker-button {
     width: 58px;
@@ -400,10 +411,11 @@
   }
   .all-subjects-display-box {
     grid-template-columns: 1fr;
-    padding: 15px;
+    padding: 20px;
+    gap: 25px;
   }
   .not-today {
     margin-top: 55px;
-    font-size: 15px;
+    font-size: 13px;
   }
 }

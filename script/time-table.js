@@ -1,10 +1,18 @@
-import {timeTable, loadTimeTable, loadStartEndDates, saveInStorage, getDayData, removeSubjectTimeTable, startEndDate, saveStartDate, saveEndDate, dataChecker} from '../data/time-table.js';
-import { subjectDataSort, subjectsData, removeSubjectFromData } from '../data-at/subject.js';
+import {timeTable, attendanceCriteria, checkAttendanceCriteria, setAttendanceCriteria, resetTimeTableData, loadTimeTable, loadStartEndDates, saveInStorage, getDayData, removeSubjectTimeTable, startEndDate, saveStartDate, saveEndDate, dataChecker} from '../data/time-table.js';
+import { subjectDataSort, removeSubjectFromData } from '../data-at/subject.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 loadTimeTable();
 loadStartEndDates();
 renderTimeTable();
+
+// attendance Criteria Display at start
+if (checkAttendanceCriteria()) {
+  document.querySelector('.selected-attendance-criteria').innerText = `${attendanceCriteria}% Criteria Selected`;
+}
+else {
+  document.querySelector('.selected-attendance-criteria').innerText = `No Criteria Selected`;
+}
 
 // display of dates at opening og page
 (!dayjs(startEndDate.startDate) || !dayjs(startEndDate.startDate).isValid()) ? document.querySelector('.display-start-day').innerText = 'No Date Selected' : document.querySelector('.display-start-day').innerHTML = dayjs(startEndDate.startDate).format('dddd MMM DD');
@@ -158,6 +166,57 @@ function renderTimeTable() {
       }
     });
 }
+
+let attendanceCriteriaElement = document.querySelector('.input-criteria-box');
+
+document.querySelector('.input-criteria-box')
+  .addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      const value = attendanceCriteriaElement.value;
+      const numValue = Number(value);
+
+      if (value !== '' && !isNaN(numValue) && numValue >= 0 && numValue <= 100) {
+        setAttendanceCriteria(Number(attendanceCriteriaElement.value));          
+      } else {
+      alert('Please enter a valid Criteria to Confirm!');
+      }
+      attendanceCriteriaElement.value = '';
+      if (checkAttendanceCriteria()) {
+        document.querySelector('.selected-attendance-criteria').innerText = `${attendanceCriteria}% Criteria Selected`;
+      }
+      else {
+        document.querySelector('.selected-attendance-criteria').innerText = `No Criteria Selected`;
+      }
+    } 
+  });
+
+document.querySelector('.attendance-criteria-button')
+  .addEventListener('click', () => {
+    const value = attendanceCriteriaElement.value;
+    const numValue = Number(value);
+
+    if (value !== '' && !isNaN(numValue) && numValue >= 0 && numValue <= 100) {
+      setAttendanceCriteria(Number(attendanceCriteriaElement.value));          
+    } else {
+    alert('Please enter a valid Criteria to Confirm!');
+    }
+    attendanceCriteriaElement.value = '';
+    if (checkAttendanceCriteria()) {
+        document.querySelector('.selected-attendance-criteria').innerText = `${attendanceCriteria}% Criteria Selected`;
+      }
+      else {
+        document.querySelector('.selected-attendance-criteria').innerText = `No Criteria Selected`;
+      }
+  });
+
+document.querySelector('.reset-button')
+  .addEventListener('click', () => {
+    resetTimeTableData();
+    document.querySelector('.display-start-day').innerText = 'No Date Selected';
+    document.querySelector('.display-end-day').innerText = 'No Date Selected';
+    document.querySelector('.selected-attendance-criteria').innerText = `No Criteria Selected`;
+    renderTimeTable();
+  });
 
 document.querySelector('.subject-attendance-chart')
   .addEventListener('click', () => {
