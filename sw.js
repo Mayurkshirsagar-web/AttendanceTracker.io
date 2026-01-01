@@ -1,4 +1,4 @@
-const CACHE_NAME = 'attendance-tracker-v1';
+const CACHE_NAME = 'attendance-tracker-v2';
 
 // All the assets from your folders shown in the screenshots
 const assets = [
@@ -44,6 +44,7 @@ const assets = [
 
 // Install Service Worker and cache all assets
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('Caching all app folders and assets');

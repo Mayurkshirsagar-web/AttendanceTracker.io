@@ -142,18 +142,14 @@ export function subjectCounter () {
 }
 
 export function resetTimeTableData() {
-  // Clear storage
-  localStorage.removeItem('time-table-data');
-  localStorage.removeItem('start-end-date-data');
-  localStorage.removeItem('attendance-Criteria-Data');
-
-  // Clear the memory variables by modifying them in place
-  timeTable.forEach(day => {
-    day.subjects = [];
-  });
+  localStorage.clear(); // Clear EVERYTHING in one go
   
+  // Reset memory variables
+  timeTable.forEach(day => { day.subjects = []; });
   startEndDate.startDate = '';
   startEndDate.endDate = '';
-
   attendanceCriteria = undefined;
+  
+  // Crucial: Clear the specific subjects-at-data key
+  localStorage.removeItem('subjects-at-data'); 
 }

@@ -1,4 +1,4 @@
-import {timeTable, attendanceCriteria, loadTimeTable} from '../data/time-table.js';
+import { attendanceCriteria, loadTimeTable} from '../data/time-table.js';
 import { startEndDate } from '../data/time-table.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
@@ -9,28 +9,42 @@ export function saveToStorage() {
 }
 
 export function subjectDataSort() {
+  const currentTimeTable = loadTimeTable();
+  const allCurrentSubjects = [];
+  
+  // 1. Identify which subjects actually exist right now
+  currentTimeTable.forEach(day => {
+    day.subjects.forEach(s => {
+      if (!allCurrentSubjects.includes(s)) allCurrentSubjects.push(s);
+    });
+  });
 
-  loadTimeTable().forEach((dayData) => {
+  // 2. Filter out subjects deleted from the timetable
+  const filteredData = subjectsData.filter(data => allCurrentSubjects.includes(data.subjectName));
+  subjectsData.length = 0; 
+  subjectsData.push(...filteredData);
+
+  // 3. THE FIX: Reset all weekly counts to 0 before we start the new count
+  // This prevents the "Infinite Increase" bug when re-running the function
+  subjectsData.forEach(subjectObj => {
+    subjectObj.weekData = {
+      Monday: 0, Tuesday: 0, Wednesday: 0, Thursday: 0, Friday: 0, Saturday: 0
+    };
+  });
+
+  // 4. Recalculate based on the current timetable state
+  currentTimeTable.forEach((dayData) => {
     dayData.subjects.forEach((subject) => {
-      let flag = 0;
+      let matchingData = subjectsData.find(s => s.subjectName === subject);
 
-      subjectsData.forEach((subjectData) => {
-        if (subjectData.subjectName === subject) {
-          flag = 1;
-        }
-      });
-
-      if (flag === 0) {
-        subjectsData.unshift({
+      if (matchingData) {
+        // We just add +1. Since we reset to 0 above, this will always be accurate.
+        matchingData.weekData[dayData.day] += 1;
+      } else {
+        // This handles a brand new subject added for the first time
+        const newSubject = {
           subjectName: subject,
-          weekData: {
-            Monday: 0,
-            Tuesday: 0,
-            Wednesday: 0,
-            Thursday: 0,
-            Friday: 0,
-            Saturday: 0
-          },
+          weekData: { Monday: 0, Tuesday: 0, Wednesday: 0, Thursday: 0, Friday: 0, Saturday: 0 },
           status: '',
           totalClasses: 0,
           present: 0,
@@ -38,27 +52,15 @@ export function subjectDataSort() {
           cancelled: 0,
           relativePercentage: 0,
           totalPercentage: 0
-        });
-
-        subjectsData[0].weekData[dayData.day] = 0;
-        subjectsData[0].weekData[dayData.day] += 1;
+        };
+        newSubject.weekData[dayData.day] = 1;
+        subjectsData.unshift(newSubject);
       }
-      else if (flag === 1) {
-        let MatchingData;
-        subjectsData.forEach((subjectData) => {
-          if (subjectData.subjectName === subject) {
-            MatchingData = subjectData;
-          }
-        });
-
-        MatchingData.weekData[dayData.day] = 0;
-        MatchingData.weekData[dayData.day] += 1;
-      }
-
     });
   });
 
-  totalClassCounter();
+  // 5. Final Calculations
+  totalClassCounter(); // This uses the fresh weekData to get semester totals
   checkTotalClasses();
   calRelativePercent();
   calTotalPercent();

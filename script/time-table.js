@@ -1,5 +1,5 @@
 import {timeTable, attendanceCriteria, checkAttendanceCriteria, setAttendanceCriteria, resetTimeTableData, loadTimeTable, loadStartEndDates, saveInStorage, getDayData, removeSubjectTimeTable, startEndDate, saveStartDate, saveEndDate, dataChecker} from '../data/time-table.js';
-import { subjectDataSort, removeSubjectFromData, subjectsData } from '../data-at/subject.js';
+import { subjectDataSort, removeSubjectFromData, subjectsData, saveToStorage } from '../data-at/subject.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 window.addEventListener("load", () => {
@@ -220,11 +220,11 @@ document.querySelector('.attendance-criteria-button')
 
 document.querySelector('.reset-button')
   .addEventListener('click', () => {
-    resetTimeTableData();
-    document.querySelector('.display-start-day').innerText = 'No Date Selected';
-    document.querySelector('.display-end-day').innerText = 'No Date Selected';
-    document.querySelector('.selected-attendance-criteria').innerText = `No Criteria Selected`;
-    renderTimeTable();
+    if(confirm("Are you sure you want to reset all data?")) {
+      resetTimeTableData();
+      // Force a hard reload to clear memory variables across the PWA
+      window.location.reload(); 
+    }
   });
 
 document.querySelector('.subject-attendance-chart')
