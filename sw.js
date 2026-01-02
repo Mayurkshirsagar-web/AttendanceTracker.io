@@ -1,4 +1,4 @@
-const CACHE_NAME = 'attendance-tracker-v3';
+const CACHE_NAME = 'attendance-tracker-v4';
 
 const assets = [
   './',             // Add this to cache the default home path
