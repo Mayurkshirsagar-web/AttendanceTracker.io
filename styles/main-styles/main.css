@@ -595,7 +595,7 @@
     grid-template-rows: 225px 225px 1fr 230px 210px;
   }
   .time-table-box {
-    max-height: 25vh;
+    height: 70vh;
   }
   .input-days-title {
     font-size: 14.5px;

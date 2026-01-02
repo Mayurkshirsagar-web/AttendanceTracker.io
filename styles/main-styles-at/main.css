@@ -384,6 +384,12 @@
   }
 }
 
+@media (min-width: 800px) and (max-height:500px) {
+  .subject-data-box {
+    height: 84vh;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 410px) {
   .back-to-top {
     right: 40px;
