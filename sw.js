@@ -1,4 +1,4 @@
-const CACHE_NAME = 'attendance-tracker-v2';
+const CACHE_NAME = 'attendance-tracker-v3';
 
 // All the assets from your folders shown in the screenshots
 const assets = [

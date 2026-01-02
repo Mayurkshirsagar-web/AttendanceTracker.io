@@ -14,37 +14,38 @@
   justify-content: space-between;
   max-height: 28vh;
   justify-items: center;
+  box-shadow: 5px 5px 0.01px rgb(34, 0, 18);
 }
 
 .day-subject-display-box {
-    background: linear-gradient(179deg, #010d00, #022602, #a29414);
-    background-size: 800% 800%;
+    background: linear-gradient(0deg, #120109, #581235, #bb2972);
+    background-size: 600% 600%;
 
-    -webkit-animation: AnimationName 6s ease infinite;
-    -moz-animation: AnimationName 6s ease infinite;
-    -o-animation: AnimationName 6s ease infinite;
-    animation: AnimationName 6s ease infinite;
+    -webkit-animation: AnimationName 4s ease infinite;
+    -moz-animation: AnimationName 4s ease infinite;
+    -o-animation: AnimationName 4s ease infinite;
+    animation: AnimationName 4s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {
-    0%{background-position:0% 66%}
-    50%{background-position:100% 35%}
-    100%{background-position:0% 66%}
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
 }
 @-moz-keyframes AnimationName {
-    0%{background-position:0% 66%}
-    50%{background-position:100% 35%}
-    100%{background-position:0% 66%}
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
 }
 @-o-keyframes AnimationName {
-    0%{background-position:0% 66%}
-    50%{background-position:100% 35%}
-    100%{background-position:0% 66%}
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
 }
 @keyframes AnimationName {
-    0%{background-position:0% 66%}
-    50%{background-position:100% 35%}
-    100%{background-position:0% 66%}
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
 }
 
 .all-subjects-display-box {
@@ -88,16 +89,14 @@
 }
 
 .subjects-at-display-box {
-  background-color: rgb(46, 59, 2);
+  background-color: rgb(72, 20, 50);
   width: 95%;
   min-height: 100px;
   padding: 9px 13px;
   margin-top: 15px;
   margin-bottom: 1.5%;
-  border-top: 2px solid white;
-  border-left: 2px solid white;
-  box-shadow: 2.5px 2.5px 0.001px black;
   border-radius: 10px;
+  box-shadow: 3px 3px 0.01px rgb(34, 0, 18);
   overflow-y: auto;
 }
 
@@ -302,14 +301,17 @@
 
 .good {
   background-color: rgb(7, 52, 2);
+  box-shadow: 5px 5px 0.01px rgb(1, 27, 7);
 }
 
 .medium {
   background-color: rgb(37, 37, 37);
+  box-shadow: 5px 5px 0.01px rgb(29, 29, 29);
 }
 
 .bad {
   background-color: rgb(81, 12, 12);
+  box-shadow: 5px 5px 0.01px rgb(27, 1, 1);
 }
 
 @media (max-width: 700px) {
@@ -335,11 +337,13 @@
   }
   .all-subjects-display-box {
     grid-template-columns: 1fr;
-    padding: 25px;
-    gap: 30px;
+    padding: 15px;
+    gap: 50px;
+    background: transparent;
   }
   .subject-data-box {
     gap: 10px;
+    height: 42vh;
   }
   .subject-name {
     font-size: 17px;
@@ -411,8 +415,12 @@
   }
   .all-subjects-display-box {
     grid-template-columns: 1fr;
-    padding: 20px;
-    gap: 25px;
+    padding: 10px;
+    gap: 45px;
+    background: transparent;
+  }
+  .subject-data-box {
+    height: 60vh;
   }
   .not-today {
     margin-top: 55px;
