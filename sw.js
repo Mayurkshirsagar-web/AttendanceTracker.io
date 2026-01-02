@@ -29,7 +29,8 @@ const assets = [
   './Images/menu.png',
   './Images/profile-photo.png',
   './Images/right-arrow.png',
-  './Images/Header-logo-removebg-preview.png'
+  './Images/Header-logo-removebg-preview.png',
+  './Images/og-preview.png'
 ];
 
 self.addEventListener('install', (event) => {
