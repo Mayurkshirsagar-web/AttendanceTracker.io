@@ -343,7 +343,7 @@
   }
   .subject-data-box {
     gap: 10px;
-    height: 42vh;
+    height: 40vh;
   }
   .subject-name {
     font-size: 17px;
@@ -384,9 +384,9 @@
   }
 }
 
-@media (min-width: 800px) and (max-height:500px) {
+@media (min-width: 600px) and (max-height:700px) {
   .subject-data-box {
-    height: 84vh;
+    height: 88vh;
   }
 }
 
@@ -426,7 +426,7 @@
     background: transparent;
   }
   .subject-data-box {
-    height: 60vh;
+    height: 55vh;
   }
   .not-today {
     margin-top: 55px;

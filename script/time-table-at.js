@@ -2,6 +2,12 @@ import { subjectsData, classPresent, classAbsent, classCancelled } from "../data
 import { timeTable, startEndDate } from "../data/time-table.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then(() => console.log('Service Worker Registered'))
+    .catch((err) => console.log('Service Worker Failed', err));
+}
+
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   

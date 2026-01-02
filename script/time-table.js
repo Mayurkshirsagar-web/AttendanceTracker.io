@@ -2,6 +2,12 @@ import {timeTable, attendanceCriteria, checkAttendanceCriteria, setAttendanceCri
 import { subjectDataSort, removeSubjectFromData, subjectsData, saveToStorage } from '../data-at/subject.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then(() => console.log('Service Worker Registered'))
+    .catch((err) => console.log('Service Worker Failed', err));
+}
+
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   
